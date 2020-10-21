@@ -1,0 +1,27 @@
+[package]
+name = "vale"
+version = "0.0.0"
+authors = ["ThouCheese <luuk.wester@gmail.com>"]
+edition = "2018"
+description = "A simple entity validation library"
+license = "MIT"
+repository = "https://github.com/ThouCheese/vale"
+documentation = "https://docs.rs/vale"
+keywords = ["validation", "fluent"]
+readme = "README.md"
+categories = ["web-programming"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+vale-derive = { path = "../vale-derive", version = "0.0.0" }
+rkt = { package = "rocket", version = "0.4", optional = true }
+
+[dev-dependencies]
+serde_json = "1"
+rkt_contrib = { package = "rocket_contrib", version = "0.4" }
+serde = { version = "1", features = ["derive"] }
+
+[features]
+rocket = ["rkt"]
+default = ["rocket"]
